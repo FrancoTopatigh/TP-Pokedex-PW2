@@ -7,6 +7,23 @@ if ($conexion) {
 } else {
     echo "Error al conectar.";
 }
+
+
+    $sql = "SELECT * FROM pokemon";
+    $res = mysqli_query($conexion, $sql);
+
+    echo "<table border='1'>";
+    while($row = mysqli_fetch_assoc($res)) {
+        echo "<tr>";
+        echo "<td>" . $row['id'] . "</td>";
+        echo "<td>" . $row['nombre'] . "</td>";
+        echo "<td><a href='procesar_baja.php?id=" . $row['id'] . "'>Eliminar Pokémon</a></td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+
+
 ?>
 
 <!DOCTYPE html>
