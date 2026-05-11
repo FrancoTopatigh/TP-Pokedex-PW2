@@ -1,7 +1,7 @@
 <?php
+require_once 'validarLogin.php';
 global $conexion;
 include 'conexion.php';
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,7 +15,9 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
+
 <body>
+
     <?php include './html/header.php' ?>
     <h1>Mi Pokedex</h1>
 </body>

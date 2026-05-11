@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -13,25 +12,28 @@ session_start();
     </button>
     <div class="collapse navbar-collapse gap-2 flex-grow-0" id="navbarSupportedContent">
       <?php
-      $_SESSION['loggedin'] = true;
-      $_SESSION['username'] = "TestUsername";
+      $isLoggedIn = $_SESSION['loggedin'] ?? false;
+      $userName = $_SESSION['username'] ?? "";
 
-      $isLoggedIn = $_SESSION['loggedin'];
-      $userName = $_SESSION['username'];
       if ($isLoggedIn) {
         echo '
           <span class="navbar-text">' . $userName . '</span>
-          <button class="btn btn-sm btn-danger d-flex">
-            <i class="material-symbols-outlined">logout</i>
-            <span class="ms-2 d-inline d-sm-none">Logout</span>
-          </button>
+
+          <form action="logout.php" method="POST">
+             <button class="btn btn-sm btn-danger d-flex">
+              <i class="material-symbols-outlined">logout</i>
+              <span class="ms-2 d-inline d-sm-none">Logout</span>
+             </button>
+          </form>
+        
         ';
       } else {
         echo '
-          <button class="btn btn-sm btn-light d-flex">
+            <a href="login.php" class ="text-decoration-none ">   <button  class="btn btn-sm btn-light d-flex">
             <i class="material-symbols-outlined">login</i>
             <span class="ms-2 d-inline d-sm-none">Login</span>
-          </button>
+            <span class="ms-2 d-inline d-sm-none">Login</span>     </button></a>
+    
         ';
       }
       ?>
