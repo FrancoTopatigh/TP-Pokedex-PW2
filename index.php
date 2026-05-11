@@ -18,6 +18,7 @@ if ($conexion) {
         echo "<td>" . $row['id'] . "</td>";
         echo "<td>" . $row['nombre'] . "</td>";
         echo "<td><a href='procesar_baja.php?id=" . $row['id'] . "'>Eliminar Pokémon</a></td>";
+        echo "<td><a href='modificar_formulario.php?id=" . $row['id'] . "'>Editar</a></td>";
         echo "</tr>";
     }
 
